@@ -95,7 +95,7 @@ class capture():
         self.compound['Li04LS']= [ {'LS': 0.996,'LI':0.004}, 0.87]
         self.complist.append('Li04LS')
 
-        for fLi in [0.00000001, 0.0006, 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008, 0.009, 0.010]:
+        for fLi in [0.00000001, 0.0006, 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.0073, 0.008, 0.009, 0.010]:
             name = 'Li' + '{0:03d}'.format(int(10000.*fLi+.5)) + 'UGAB'
             self.compound[name] = [ {'UGAB':1.0-fLi, 'LI':fLi}, 0.98 ]
             self.complist.append(name)
