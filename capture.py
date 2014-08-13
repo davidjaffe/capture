@@ -17,7 +17,7 @@ class capture():
         self.avonum = 6.022e23
         self.vthermal = 2200. * 100. # cm/s
         self.barn = 1.e-24
-        # isotope abundances: NOTE THAT Lithium is pure Li6. natLi = 6Li(7.59%), 7Li(92.41%)
+        # isotope abundances:
         self.abundance = {'H' : {1: 0.999885, 2: 0.000115}, \
                           'C' : {12: 0.9893, 13: 0.0107},\
                           'CU': {63:0.69, 65:0.31},\
@@ -27,6 +27,7 @@ class capture():
                           'P' : { 17:1.00}, \
                           'N' : { 14:0.99636, 15:0.00364}\
                           }
+        # either use 6Li-enriched or natural lithium, natLi = 6Li(7.59%), 7Li(92.41%)
         if Use_natLi:
             self.abundance['LI'] = {6:0.0759, 7:0.9241}
             print '\n *** USING NATURAL LITHIUM *** \n'
@@ -269,13 +270,16 @@ class capture():
             fpaw.close()
         return
 if __name__ == '__main__':
+    # got to change next line if you want to write files to your machine
     pawDir = '/Users/djaffe/work/paw/PROSPECT/'
+    # first do calculations with enriched Li (pure 6Li)
     C = capture()
     print ' '
     C.reportXS()
     print ' ' 
     C.reportCaptime(pawFile=pawDir+'6Li_UGAB.vec')
 
+    # now do calculations with natural Li
     Cnat = capture(Use_natLi=True)
     print ' '
     Cnat.reportXS()
