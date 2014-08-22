@@ -25,6 +25,8 @@ class capture():
                           'W' : {180:0.0012,182:0.265, 183:0.143, 184:0.306, 186:0.284},\
                           'O' : { 16:0.99757, 17:0.00038, 18:0.00205},\
                           'P' : { 17:1.00}, \
+                          'AL': { 27:1.00}, \
+                          'FE': { 54:0.05845, 56:0.91754, 57:0.02119, 58:0.00282},\
                           'N' : { 14:0.99636, 15:0.00364}\
                           }
         # either use 6Li-enriched or natural lithium, natLi = 6Li(7.59%), 7Li(92.41%)
@@ -94,6 +96,11 @@ class capture():
         self.complist.append('Li03LS')
         self.compound['Li04LS']= [ {'LS': 0.996,'LI':0.004}, 0.87]
         self.complist.append('Li04LS')
+
+        self.compound['Aluminum'] = [ {'AL': 1.0, 'H':0.000001}, 2.70]
+        self.complist.append('Aluminum')
+        self.compound['Iron'] = [ {'FE': 1.0, 'H':0.000001}, 7.87]
+        self.complist.append('Iron')
 
         for fLi in [0.00000001, 0.0006, 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.0073, 0.008, 0.009, 0.010]:
             name = 'Li' + '{0:03d}'.format(int(10000.*fLi+.5)) + 'UGAB'
