@@ -30,6 +30,7 @@ class capture():
                           'CU': {63:0.69, 65:0.31},\
                           'GD': {152:0.002, 154:0.022, 155:0.148, 156:0.205, 157:0.157, 158:0.248, 160:0.219},\
                           'W' : {180:0.0012,182:0.265, 183:0.143, 184:0.306, 186:0.284},\
+                          'TA': {181:1.0 }, \
                           'O' : { 16:0.99757, 17:0.00038, 18:0.00205},\
                           'P' : { 17:1.00}, \
                           'AL': { 27:1.00}, \
@@ -124,6 +125,12 @@ class capture():
         self.complist.append('Al')
         self.compound['Iron'] = [ {'FE': 1.0}, 7.87]
         self.complist.append('Iron')
+        self.compound['Ta'] = [ {'TA': 1.0}, 16.654 ]
+        self.complist.append('Ta')
+        self.compound['Tng'] = [ {'W':1.0}, 19.25 ]
+        self.complist.append('Tng')
+        # Ta,W alloy bolts stronger according to http://www.extreme-bolt.com/products-tantalum-bolts.html
+        self.makeMixture(name1='Ta',name2='Tng',frac1=1-0.025) 
 
         self.compound['BPE']  = [ {'B': 0.05, 'HDPE':0.95}, 1.01]
         self.complist.append('BPE')
@@ -140,6 +147,10 @@ class capture():
             self.makeMixture(name1='HDPE',name2='SS304',frac1=1.-f,suffix=suffix)
             self.makeMixture(name1='BPE',name2='Al',frac1=1.-f,suffix=suffix)
             self.makeMixture(name1='HDPE',name2='Al',frac1=1.-f,suffix=suffix)
+            self.makeMixture(name1='BPE',name2='Ta',frac1=1.-f,suffix=suffix)
+            self.makeMixture(name1='HDPE',name2='Ta',frac1=1.-f,suffix=suffix)
+            self.makeMixture(name1='BPE',name2='Ta-Tng',frac1=1.-f,suffix=suffix)
+            self.makeMixture(name1='HDPE',name2='Ta-Tng',frac1=1.-f,suffix=suffix)
 
         for fLi in [0.001]: # [0.00000001, 0.0006, 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.0073, 0.008, 0.009, 0.010]:
             name = 'Li' + '{0:03d}'.format(int(10000.*fLi+.5)) + 'UGAB'
