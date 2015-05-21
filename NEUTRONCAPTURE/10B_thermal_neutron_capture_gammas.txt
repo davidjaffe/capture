@@ -1,0 +1,7 @@
+Thermal Neutron Capture Gammas — Target Nucleus 10B
+
+Target Nucleus=10B
+FAKE FILE CONSTRUCTED TO PRODUCE A 478keV GAMMA From 10B(n,t)4He
+ 
+478.		0.00		100.00		0.00	
+	By Target	2H	

@@ -1,0 +1,14 @@
+Thermal Neutron Capture Gammas — Target Nucleus 1H
+
+Target Nucleus=1H
+Strongest transition  Eγ=2223.25+-0.00 keV    %Iγ=100.00+-0.00
+Eγ
+(keV)
+ΔEγ
+(keV)
+Iγ/Iγ(max)
+(%)
+Δ(Iγ/Iγ(max))
+ 
+2223.25		0.00		100.00		0.00	
+	By Target	2H	

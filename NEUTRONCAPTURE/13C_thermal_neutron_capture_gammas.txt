@@ -1,0 +1,20 @@
+Thermal Neutron Capture Gammas — Target Nucleus 13C
+
+Target Nucleus=13C
+Strongest transition  Eγ=8174.00+-0.30 keV    %Iγ=84.00+-2.30
+Eγ
+(keV)
+ΔEγ
+(keV)
+Iγ/Iγ(max)
+(%)
+Δ(Iγ/Iγ(max))
+ 
+495.40		0.30		9.52		0.44	
+808.90		0.20		4.29		0.38	
+1273.81		0.17		5.83		1.20	
+1586.92		0.18		10.12		0.66	
+2082.53		0.18		2.98		0.60	
+6092.40		0.20		19.40		1.09	
+8174.00		0.30		100.00		3.87	
+	12C		By Target	14N	

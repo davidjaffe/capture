@@ -1,0 +1,19 @@
+Thermal Neutron Capture Gammas — Target Nucleus 16O
+
+Target Nucleus=16O
+Strongest transition  Eγ=870.71+-0.00 keV    %Iγ=100.00+-0.00
+Eγ
+(keV)
+ΔEγ
+(keV)
+Iγ/Iγ(max)
+(%)
+Δ(Iγ/Iγ(max))
+ 
+870.71		0.12		100.00		0.00	
+1087.93		0.11		82.00		3.00	
+2184.48		0.20		82.00		3.00	
+3272.26		0.11		18.00		3.00	
+3320.00		0.00		76.00		0.00	
+4190.00		0.00		24.00		0.00	
+	14N		By Target	17O	

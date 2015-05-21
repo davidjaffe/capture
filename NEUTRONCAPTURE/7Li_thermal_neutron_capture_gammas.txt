@@ -1,0 +1,16 @@
+Thermal Neutron Capture Gammas — Target Nucleus 7Li
+
+Target Nucleus=7Li
+Strongest transition  Eγ=2032.50+-0.30 keV    %Iγ=89.40+-1.00
+Eγ
+(keV)
+ΔEγ
+(keV)
+Iγ/Iγ(max)
+(%)
+Δ(Iγ/Iγ(max))
+ 
+980.70		0.20		11.86		1.13	
+1052.00		0.20		11.86		1.13	
+2032.50		0.30		100.00		1.58	
+	6Li		By Target	9Be	
