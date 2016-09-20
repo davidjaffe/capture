@@ -47,8 +47,10 @@ class capture():
             print '\n *** USING NATURAL LITHIUM *** \n'
             self.Header += 'Natural Lithium '
         else:
-            self.abundance['LI'] = {6:1.00}
-            print '\n *** USING PURE 6LI *** \n'
+#            self.abundance['LI'] = {6:1.00}
+            f6Li = 0.999
+            self.abundance['LI'] = {6:f6Li, 7:1.-f6Li}
+            print '\n *** USING '+str(100.*f6Li)+'%PURE 6LI *** \n'
             self.Header += 'Pure 6Li '
         f = open(self.xsecfile)
         l = f.readline()
@@ -162,6 +164,15 @@ class capture():
             self.compound[name] = [ {'LS' : 0.90-fLi, 'CU':0.10, 'LI':fLi}, 1.68]
             self.complist.append(name)
 
+        ## study Gd contamination of LiLS 20160920
+        fLi = 0.001
+        GdFractions = [math.pow(10.,-x) for x in range(3,9,1)]
+        GdFractions.append(0.)
+        for fGd in GdFractions:# [0.001, 0.0001, 0.00001, 0.000001, 0.0000001, 0.]:
+            name = 'LiLSGd' + str(int(math.pow(10.,9)*fGd)) + 'ppb'
+            self.compound[name] = [ {'LS': 1.0-fLi-fGd,'GD':fGd,'LI':fLi}, 0.87]
+            self.complist.append(name)
+
         self.complist.sort()
 
         # identify main isotope of interest for captures
@@ -257,6 +268,7 @@ class capture():
         For NIST cross-section list, if isotope has 100% abundance, use the element name only in search.
         no entry will return zero cross-section
         '''
+        debugNIST = False
         NIST = 'nist' in self.xsecfile
         LBL  = 'lbl' in self.xsecfile
         if not xor(NIST,LBL):
@@ -265,23 +277,25 @@ class capture():
         isotope = inputIsotope
         if NIST:
             element = self.getElement(inputIsotope)
+            if debugNIST: print 'capture.getXSEC element',element
             if len(self.abundance[element])==1:
-                #print 'getXSEC: inputIsotope',inputIsotope,'has 100% abundance. Use',element,'in search for cross-section'
+                if debugNIST: print 'capture.getXSEC inputIsotope',inputIsotope,'has 100% abundance. Use',element,'in search for cross-section'
                 isotope = element
         
         xsec = 0.
 
         if NIST:
+            if debugNIST: print 'capture.getXSEC inputIsotope',inputIsotope,'isotope',isotope
             f = open(self.xsecfile,'r')
             for line in f:
                 if line[0]!='#':
                     s = line[:-1].split('\t')
-                    #print s
+                    if debugNIST: print 'capture.getXSEC ',s
                     if isotope==s[0].upper():
                         cxsec = s[7]
                         if '(' in cxsec: cxsec = cxsec.split('(')[0]
                         xsec = float(cxsec)
-                        #print '********************* found',isotope,'cxsec',cxsec,'xsec',xsec,'+++++++++++'
+                        if debugNIST: print 'capture.getXSEC ********************* found',isotope,'cxsec',cxsec,'xsec',xsec,'+++++++++++'
                         break
             f.close()
             return xsec
